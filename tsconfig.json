@@ -11,10 +11,22 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "jsx": "preserve",
-    "incremental": true
+    "incremental": true,
+    "types": ["vitest/globals", "cypress", "node"],
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "./tests/vitest-setup.ts"
+  ],
   "exclude": ["node_modules"]
 }
