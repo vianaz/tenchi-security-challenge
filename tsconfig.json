@@ -11,7 +11,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": false,
+    "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
     "types": ["vitest/globals", "cypress", "node"],
@@ -19,7 +19,11 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "paths": {
+      "@style": ["./src/styles/global.scss"],
+      "@graphql": ["./src/lib/client"]
+    }
   },
   "include": [
     "next-env.d.ts",
