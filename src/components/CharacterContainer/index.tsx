@@ -37,6 +37,7 @@ export const CharacterContainer = ({
           image={image}
           lazyLoad={lazyLoad}
         />
+
         <div className={styles.info}>
           <CharTitle
             name={name}
@@ -48,11 +49,11 @@ export const CharacterContainer = ({
             specie={specie}
             lazyLoad={lazyLoad}
           />
+
           <CharOrigin
             origin={origin}
             lazyLoad={lazyLoad}
           />
-
           <CharEpisode
             episode={episode}
             lazyLoad={lazyLoad}
@@ -70,12 +71,13 @@ const CharImage = ({
   return lazyLoad ? (
     <div className={`${styles.noImage} ${styles.lazy}`} />
   ) : (
-    <Image
-      src={image || ''}
-      alt='char img'
-      width={135}
-      height={185}
-    />
+    <div className={styles.image}>
+      <Image
+        fill
+        src={image || ''}
+        alt='char img'
+      />
+    </div>
   )
 }
 

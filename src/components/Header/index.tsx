@@ -1,21 +1,35 @@
-import { NextRouter } from 'next/router'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import useTranslation from 'next-translate/useTranslation'
 
 import styles from './style.module.scss'
-
-type Props = {
-  headerInfos: HeaderData[]
-  router: NextRouter['pathname']
-}
 
 type HeaderData = {
   text: string
   url: string
 }
 
-export const Header = ({ headerInfos, router }: Props): JSX.Element => {
+export const Header = (): JSX.Element => {
+  const router = useRouter()
+  const { t } = useTranslation('common')
+
+  const headerInfos = [
+    {
+      text: t('header.characters'),
+      url: '/'
+    },
+    {
+      text: t('header.locations'),
+      url: '/locations'
+    },
+    {
+      text: t('header.episodies'),
+      url: '/episodes'
+    }
+  ]
+
   const isSelect = (url: string): boolean => {
-    return router === url
+    return router.pathname === url
   }
 
   return (

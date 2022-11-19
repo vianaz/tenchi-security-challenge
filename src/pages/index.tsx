@@ -1,13 +1,11 @@
 import { gql, useQuery } from '@apollo/client'
 import InfiniteScroll from 'react-infinite-scroll-component'
 
-import { useRouter } from 'next/router'
-import useTranslation from 'next-translate/useTranslation'
+import { useCallback } from 'react'
+import { useMemo } from 'react'
 
 import { CharacterContainer, Header } from '@components'
 import { capitalize } from '@libs'
-import { useCallback } from 'react'
-import { useMemo } from 'react'
 
 const GET_CHARACTERS = gql`
   query GET_CHARACTERS($page: Int!) {
@@ -85,30 +83,9 @@ const Home = (): JSX.Element => {
     return list ? list[list.length - 1] : ''
   }, [])
 
-  const router = useRouter()
-  const { t } = useTranslation('common')
-
-  const headerInfos = [
-    {
-      text: t('header.characters'),
-      url: '/'
-    },
-    {
-      text: t('header.locations'),
-      url: '/locations'
-    },
-    {
-      text: t('header.episodies'),
-      url: '/episodes'
-    }
-  ]
-
   return (
     <div id='home'>
-      <Header
-        headerInfos={headerInfos}
-        router={router.pathname}
-      />
+      <Header />
       <InfiniteScroll
         dataLength={dataCharacters.length}
         hasMore={true}

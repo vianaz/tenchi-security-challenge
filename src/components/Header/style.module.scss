@@ -1,12 +1,12 @@
 @import '../../styles/setup.scss';
 
 .header {
-    position: sticky;
-    margin-top: 20px;
     display: flex;
 
+    position: absolute;
+    top: 20px;
+    right: 20px;
 
-    margin-bottom: 100px;
     a {
         margin-left: 20px;
         font-size: 15px;

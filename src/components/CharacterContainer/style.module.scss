@@ -7,8 +7,10 @@ $unknown-color: #ffe6067a;
 $widthOriginEpisode: 160px;
 
 .container {
+    position: relative;
     display: flex;
-    height: 185px;
+    height: max-content;
+    min-height: 185px;
     width: 350px;
 
     background-color: $container-color;
@@ -30,13 +32,21 @@ $widthOriginEpisode: 160px;
         }
     }
 
-    img {
-        border-radius: 15px 0 0 15px;
+    .image {
+        position: absolute;
+        height: 100%;
+        width: 135px;
+        
+        img {
+            border-radius: 15px 0 0 15px;
+        }
     }
 
     .noImage {
+        position: absolute;
+        height: 100%;
         width: 135px;
-        height: 185px;
+
         border-radius: 15px 0 0 15px;
         background-color: #474747;
     }
@@ -75,7 +85,9 @@ $widthOriginEpisode: 160px;
     .info {
         display: flex;
         flex-direction: column;
-        margin: 20px 0 0 15px;
+        margin-top: 20px;
+
+        margin-left: calc(135px + 15px);
     }
 
     .name {
@@ -141,6 +153,7 @@ $widthOriginEpisode: 160px;
         align-items: center;
 
         margin-left: -3px;
+        margin-bottom: 15px;
 
         p {
             font-size: 15px;

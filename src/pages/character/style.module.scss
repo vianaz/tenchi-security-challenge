@@ -1,0 +1,53 @@
+.content {
+    margin: 100px 20px;
+
+
+    img {
+        border-radius: 15px;
+    }
+
+    .containerInfo {
+        position: relative;
+        display: flex;
+        height: max-content;
+        min-height: 230px;
+
+        .image {
+            position: absolute;
+            height: 100%;
+            width: 145px;
+        }
+        .infos {
+            margin-left: calc(145px + 15px);
+            
+            h2 {
+                font-size: 32px;
+                font-weight: bold;
+                line-height: 3rem;
+            }
+
+            .origin {
+                display: flex;
+                align-items: center;
+                margin: 15px 0;
+                p{
+                    margin-left: 5px;
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+            }
+        }
+        
+    }
+
+    .episodes {
+        h2 {
+            font-size: 36px;
+            font-weight: bold;
+            font-style: italic;
+            line-height: 3rem;
+
+            margin: 30px 0;
+        }
+    }
+}
