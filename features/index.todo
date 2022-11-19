@@ -3,7 +3,8 @@ Features:
         -> Mobile First Design 
         [+] Do Home Page design on Figma
         [+] Do Character Page design on Figma
-        [] Do Components for Characters and Character Page
+        [+] Do Components for Characters and Character Page
+        [] Infinity Scroller
         [] Do Characters Page on Next.js
         [] Do Character Page on Next.js
 

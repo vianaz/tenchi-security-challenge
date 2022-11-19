@@ -14,7 +14,8 @@ export const Alive: StoryObj = {
     aliveStatus: 'Alive',
     specie: 'Human',
     origin: 'Earth (C-137)',
-    episode: 'Pilot'
+    episode: 'Pilot',
+    lazyLoad: false
   }
 }
 
@@ -25,7 +26,8 @@ export const Dead: StoryObj = {
     aliveStatus: 'Dead',
     specie: 'Human',
     origin: 'Earth (C-137)',
-    episode: 'Pilot'
+    episode: 'Pilot',
+    lazyLoad: false
   }
 }
 
@@ -36,6 +38,13 @@ export const Unknown: StoryObj = {
     aliveStatus: 'Unknown',
     specie: 'Human',
     origin: 'Earth (C-137)',
-    episode: 'Pilot'
+    episode: 'Pilot',
+    lazyLoad: false
+  }
+}
+
+export const Loading: StoryObj = {
+  args: {
+    lazyLoad: true
   }
 }

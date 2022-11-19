@@ -24,7 +24,8 @@
     "paths": {
       "@style": ["./src/styles/global.scss"],
       "@graphql": ["./src/lib/client"],
-      "@components": ["./src/components"]
+      "@components": ["./src/components"],
+      "@libs": ["./src/lib"]
     }
   },
   "include": [
