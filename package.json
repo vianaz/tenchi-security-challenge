@@ -42,6 +42,7 @@
     "sass": "^1.56.1"
   },
   "devDependencies": {
+    "storybook-addon-next": "^1.6.10",
     "@babel/core": "^7.20.2",
     "@commitlint/cli": "^17.2.0",
     "@commitlint/config-conventional": "^17.2.0",

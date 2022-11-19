@@ -1,22 +1,45 @@
+import { useRouter } from 'next/router'
 import useTranslation from 'next-translate/useTranslation'
-import { gql, useQuery } from '@apollo/client'
 
-const GET = gql`
-  query {
-    characters {
-      results {
-        id
-        name
-      }
-    }
-  }
-`
+import { CharacterContainer, Header } from '@components'
 
 const Home = (): JSX.Element => {
-  const { data } = useQuery(GET)
-
+  const router = useRouter()
   const { t } = useTranslation('common')
-  return <h1>{t('test')}</h1>
+
+  const headerInfos = [
+    {
+      text: t('header.characters'),
+      url: '/'
+    },
+    {
+      text: t('header.locations'),
+      url: '/locations'
+    },
+    {
+      text: t('header.episodies'),
+      url: '/episodes'
+    }
+  ]
+
+  const infos = {
+    name: 'Rick Sanchez',
+    image: 'https://rickandmortyapi.com/api/character/avatar/1.jpeg',
+    aliveStatus: 'Alive',
+    specie: 'Human',
+    origin: 'Earth (C-137)',
+    episode: 'Pilot'
+  }
+
+  return (
+    <div id='home'>
+      <Header
+        headerInfos={headerInfos}
+        router={router.pathname}
+      />
+      <CharacterContainer {...infos} />
+    </div>
+  )
 }
 
 export default Home

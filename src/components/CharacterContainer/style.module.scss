@@ -1,0 +1,95 @@
+$container-color: #303436;
+
+$dead-color: #ff060673;
+$alive-color: #06ff1f7c;
+$unknown-color: #ffe6067a;
+
+.container {
+    display: flex;
+    height: 185px;
+    width: 350px;
+
+    background-color: $container-color;
+
+    border-radius: 10px;
+
+    img {
+        border-radius: 15px 0 0 15px;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0 0 15px;
+    }
+
+    .name {
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    .aliveStatus {
+        display: flex;
+        align-items: center;
+
+        margin: 14px 0;
+        div {
+            width: 12px;
+            height: 12px;
+            
+            margin-right: 7px;
+
+            border-radius: 100%;
+        }
+
+        .Alive {
+            background-color: $alive-color;
+        }
+
+        .Dead {
+            background-color: $dead-color;
+        }
+
+        .Unknown {
+            background-color: $unknown-color;
+        }
+
+        .default {
+            background-color: rgb(126, 126, 126);
+        }
+
+        p {
+            font-size: 12px;
+            font-weight: semi-bold;
+            color: rgba(255, 255, 255, 0.5);
+        }
+    }
+
+    .origin {
+        display: flex;
+        align-items: center;
+
+        margin-left: -3px;
+        margin-bottom: 15px;
+
+        p {
+            font-size: 15px;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+    }
+
+    .episode {
+        display: flex;
+        align-items: center;
+
+        margin-left: -3px;
+
+        p {
+            font-size: 15px;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+    }
+}

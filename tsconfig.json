@@ -20,9 +20,11 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
       "@style": ["./src/styles/global.scss"],
-      "@graphql": ["./src/lib/client"]
+      "@graphql": ["./src/lib/client"],
+      "@components": ["./src/components"]
     }
   },
   "include": [

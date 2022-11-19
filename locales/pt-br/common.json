@@ -1,3 +1,7 @@
 {
-  "test": "test pt-br"
+  "header": {
+    "characters": "Personagens",
+    "locations": "Locais",
+    "episodies": "Episódios"
+  }
 }

@@ -1,3 +1,34 @@
-Feature:
-    Todo:
-        [] Add a new feature @1h
+Features:
+    Characters:
+        -> Mobile First Design 
+        [+] Do Home Page design on Figma
+        [+] Do Character Page design on Figma
+        [] Do Components for Characters and Character Page
+        [] Do Characters Page on Next.js
+        [] Do Character Page on Next.js
+
+    Locations:
+        -> Mobile First Design 
+        [] Do Home Page design on Figma
+        [] Do Character Page design on Figma
+        [] Do Components for Characters and Character Page
+        [] Do Characters Page on Next.js
+        [] Do Character Page on Next.js
+
+
+    Episodes:
+        -> Mobile First Design 
+        [] Do Home Page design on Figma
+        [] Do Character Page design on Figma
+        [] Do Components for Characters and Character Page
+        [] Do Characters Page on Next.js
+        [] Do Character Page on Next.js
+
+
+    Dashboard:
+        -> Mobile First Design 
+        [] Do Home Page design on Figma
+        [] Do Character Page design on Figma
+        [] Do Components for Characters and Character Page
+        [] Do Characters Page on Next.js
+        [] Do Character Page on Next.js

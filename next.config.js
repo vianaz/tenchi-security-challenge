@@ -8,6 +8,9 @@ const nextConfig = {
   i18n: {
     locales: ['en', 'pt-br'],
     defaultLocale: 'pt-br'
+  },
+  images: {
+    domains: ['rickandmortyapi.com']
   }
 }
 
