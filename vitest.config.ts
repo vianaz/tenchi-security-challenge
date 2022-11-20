@@ -5,6 +5,15 @@ import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
+  resolve: {
+    alias: {
+      '@style': '/src/styles/global.scss',
+      '@graphql': '/src/lib/client',
+      '@components': '/src/components',
+      '@libs': '/src/lib'
+    }
+  },
+
   plugins: [react()],
   test: {
     environment: 'jsdom',

@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.1",
-    "antd": "^5.0.0",
     "bootstrap": "^5.2.2",
     "framer-motion": "^7.6.7",
     "graphql": "^16.6.0",

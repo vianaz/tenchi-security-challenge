@@ -1,3 +1,4 @@
 export * from './Header'
 export * from './CharacterContainer'
-export * from './EpisodiesTable'
+export * from './LazyComponents'
+export * from './CharacterInfoContainer'

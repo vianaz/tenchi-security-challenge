@@ -1,14 +1,11 @@
 import { gql } from '@apollo/client'
 
-import useTranslation from 'next-translate/useTranslation'
-import { GetServerSideProps } from 'next'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
-import Image from 'next/image'
 
 import client from '@graphql'
 
-import { EpisodiesTable, Header } from '@components'
-import { capitalize } from '@libs'
+import { CharacterInfoContainer, CharPageImage } from '@components'
 
 import styles from './style.module.scss'
 
@@ -36,6 +33,7 @@ type CharacterPageProps = {
       episode: string
     }[]
   }
+  lazyLoad: boolean
 }
 
 const GET_CHARACTER = gql`
@@ -70,81 +68,48 @@ const GET_CHARACTER = gql`
 `
 
 const CharacterPage = ({ character }: CharacterPageProps): JSX.Element => {
-  const router = useRouter()
-  const { id } = router.query as { id: string }
+  const { isFallback } = useRouter()
 
   return (
     <div className={styles.content}>
-      <Header />
       <div className={styles.containerInfo}>
-        <div className={styles.image}>
-          <Image
-            fill
-            src={character.image}
-            alt='Character Image'
-          />
-        </div>
-        <CharacterInfoContainer character={character} />
-      </div>
-      <EpisodesContainer character={character} />
-    </div>
-  )
-}
-
-const CharacterInfoContainer = ({
-  character
-}: CharacterPageProps): JSX.Element => {
-  return (
-    <div className={styles.infos}>
-      <h2>{character.name}</h2>
-
-      <div className={styles.origin}>
-        <Image
-          src='/origin.svg'
-          alt='Origin Icon'
-          width={35}
-          height={35}
+        <CharPageImage
+          image={character?.image}
+          lazyLoad={isFallback}
         />
-        <p>{capitalize(character.origin.name)}</p>
-      </div>
-
-      <div className={styles.origin}>
-        <Image
-          src='/lastLocation.svg'
-          alt='Last Location Icon'
-          width={35}
-          height={35}
+        <CharacterInfoContainer
+          name={character?.name}
+          origin={character?.origin.name}
+          location={character?.location.name}
+          lazyLoad={isFallback}
         />
-        <p>{capitalize(character.location.name)}</p>
       </div>
     </div>
   )
 }
 
-const EpisodesContainer = ({ character }: CharacterPageProps): JSX.Element => {
-  const { t } = useTranslation('common')
-
-  return (
-    <div className={styles.episodes}>
-      <h2>{t('episodies')}</h2>
-      <EpisodiesTable episodes={character.episode} />
-    </div>
-  )
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: [],
+    fallback: true
+  }
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  const { id } = params as { id: string }
+export const getStaticProps: GetStaticProps = async ctx => {
+  const { id } = ctx.params as { id: string }
+
   const { data } = await client.query({
     query: GET_CHARACTER,
     variables: {
-      id: id
+      id
     }
   })
 
   return {
     props: {
       character: data.character
-    }
+    },
+    revalidate: 60 * 60 * 24 // 24 hours
   }
 }
 

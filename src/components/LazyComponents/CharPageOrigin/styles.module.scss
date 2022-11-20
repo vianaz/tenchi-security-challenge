@@ -1,0 +1,19 @@
+@use 'src/styles/setup.scss' as *;
+
+.noOrigin {
+  margin-top: 25px;
+  width: 150px;
+  height: 30px;
+  background-color: $container-color;
+}
+
+.origin {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  p {
+    margin-left: 5px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}

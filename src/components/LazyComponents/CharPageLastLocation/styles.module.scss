@@ -1,0 +1,20 @@
+@use '/src/styles/setup.scss' as *;
+
+.noLastLocation {
+  margin-top: 15px;
+  width: 130px;
+  height: 30px;
+
+  background-color: $container-color;
+}
+
+.lastLocation {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  p {
+    margin-left: 5px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+}

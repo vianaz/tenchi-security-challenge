@@ -4,11 +4,6 @@ import useTranslation from 'next-translate/useTranslation'
 
 import styles from './style.module.scss'
 
-type HeaderData = {
-  text: string
-  url: string
-}
-
 export const Header = (): JSX.Element => {
   const router = useRouter()
   const { t } = useTranslation('common')

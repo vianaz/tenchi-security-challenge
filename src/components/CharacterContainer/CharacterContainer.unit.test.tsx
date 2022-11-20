@@ -39,11 +39,12 @@ describe('CharacterContainer', () => {
   })
 
   it('should render the component with loading state', () => {
-    const { queryByText } = makeSut(true)
+    const { queryByText, container } = makeSut(true)
 
-    expect(queryByText('Rick Sanchez')).not.toBeInTheDocument()
-    expect(queryByText('Alive - Human')).not.toBeInTheDocument()
-    expect(queryByText('Earth (C-137)')).not.toBeInTheDocument()
-    expect(queryByText('Pilot')).not.toBeInTheDocument()
+    expect(queryByText('Rick Sanchez')).toBeNull()
+    expect(queryByText('Alive - Human')).toBeNull()
+    expect(queryByText('Earth (C-137)')).toBeNull()
+    expect(queryByText('Pilot')).toBeNull()
+    expect(container.getElementsByClassName('lazy').length).toBe(5)
   })
 })

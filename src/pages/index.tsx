@@ -4,7 +4,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import { useCallback } from 'react'
 import { useMemo } from 'react'
 
-import { CharacterContainer, Header } from '@components'
+import { CharacterContainer } from '@components'
 import { capitalize } from '@libs'
 
 const GET_CHARACTERS = gql`
@@ -85,7 +85,6 @@ const Home = (): JSX.Element => {
 
   return (
     <div id='home'>
-      <Header />
       <InfiniteScroll
         dataLength={dataCharacters.length}
         hasMore={true}

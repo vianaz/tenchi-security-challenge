@@ -69,7 +69,7 @@ const CharImage = ({
   lazyLoad
 }: Pick<CharacterContainerProps, 'lazyLoad' | 'image'>): JSX.Element => {
   return lazyLoad ? (
-    <div className={`${styles.noImage} ${styles.lazy}`} />
+    <div className={`${styles.noImage} lazy`} />
   ) : (
     <div className={styles.image}>
       <Image
@@ -86,7 +86,7 @@ const CharTitle = ({
   name
 }: Pick<CharacterContainerProps, 'lazyLoad' | 'name'>): JSX.Element => {
   return lazyLoad ? (
-    <div className={`${styles.noTitle} ${styles.lazy}`} />
+    <div className={`${styles.noTitle} lazy`} />
   ) : (
     <h2 className={styles.name}>{name}</h2>
   )
@@ -101,7 +101,7 @@ const CharStatus = ({
   'lazyLoad' | 'specie' | 'aliveStatus'
 >): JSX.Element => {
   return lazyLoad ? (
-    <div className={`${styles.noStatus} ${styles.lazy}`} />
+    <div className={`${styles.noStatus} lazy`} />
   ) : (
     <div className={styles.aliveStatus}>
       <div className={styles[aliveStatus] || styles['default']}></div>
@@ -115,7 +115,7 @@ const CharOrigin = ({
   origin
 }: Pick<CharacterContainerProps, 'lazyLoad' | 'origin'>): JSX.Element => {
   return lazyLoad ? (
-    <div className={`${styles.noOrigin} ${styles.lazy}`} />
+    <div className={`${styles.noOrigin} lazy`} />
   ) : (
     <div className={styles.origin}>
       <Image
@@ -134,7 +134,7 @@ const CharEpisode = ({
   episode
 }: Pick<CharacterContainerProps, 'lazyLoad' | 'episode'>): JSX.Element => {
   return lazyLoad ? (
-    <div className={`${styles.noEpisode} ${styles.lazy}`} />
+    <div className={`${styles.noEpisode} lazy`} />
   ) : (
     <div className={styles.episode}>
       <Image
