@@ -12,6 +12,11 @@ $container-color: #303436;
   padding-top: 100px;
 }
 
+#loading {
+  display: flex;
+  justify-content: center;
+}
+
 .lazy {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 

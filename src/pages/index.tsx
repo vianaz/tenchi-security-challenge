@@ -6,6 +6,7 @@ import { useMemo } from 'react'
 
 import { CharacterContainer } from '@components'
 import { capitalize } from '@libs'
+import Image from 'next/image'
 
 const GET_CHARACTERS = gql`
   query GET_CHARACTERS($page: Int!) {
@@ -89,7 +90,16 @@ const Home = (): JSX.Element => {
         dataLength={dataCharacters.length}
         hasMore={true}
         next={getMoreData}
-        loader={<></>}>
+        loader={
+          <div id='loading'>
+            <Image
+              src='/loading.gif'
+              alt='Loading'
+              width={140}
+              height={140}
+            />
+          </div>
+        }>
         <Characters
           dataCharacters={dataCharacters}
           loading={loading}
@@ -114,7 +124,7 @@ const Characters = ({
     {dataCharacters.map(char => {
       return (
         <CharacterContainer
-          key={char?.id}
+          key={char?.name}
           id={char?.id}
           name={capitalize(char?.name)}
           image={char?.image}
