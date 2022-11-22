@@ -1,0 +1,37 @@
+@use '/src/styles/setup.scss' as *;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 150px;
+
+  background-color: $container-color;
+
+  border-radius: 15px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  a {
+    position: relative;
+    width: 90%;
+
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    word-break: break-word;
+  }
+
+  p {
+    position: absolute;
+
+    font-size: 20px;
+    font-weight: bold;
+  }
+}

@@ -9,7 +9,7 @@ import { capitalize } from '@libs'
 import Image from 'next/image'
 
 const GET_CHARACTERS = gql`
-  query GET_CHARACTERS($page: Int!) {
+  query GetCharacters($page: Int!) {
     characters(page: $page) {
       results {
         id
