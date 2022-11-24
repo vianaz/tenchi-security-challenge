@@ -4,26 +4,28 @@ import { capitalize } from '@libs'
 
 import styles from './styles.module.scss'
 
-type CharPageOriginProps = {
-  origin: string
+type DetailPageText1Props = {
+  text: string
+  image: string
   lazyLoad: boolean
 }
 
-export const CharPageOrigin = ({
-  origin,
+export const DetailPageText1 = ({
+  text,
+  image,
   lazyLoad
-}: CharPageOriginProps): JSX.Element => {
+}: DetailPageText1Props): JSX.Element => {
   return lazyLoad ? (
     <div className={`${styles.noOrigin} lazy`}></div>
   ) : (
     <div className={styles.origin}>
       <Image
-        src='/origin.svg'
-        alt='Origin Icon'
+        src={image}
+        alt='Text Icon'
         width={35}
         height={35}
       />
-      <p>{capitalize(origin)}</p>
+      <p>{capitalize(text)}</p>
     </div>
   )
 }

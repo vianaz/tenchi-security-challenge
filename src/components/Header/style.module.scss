@@ -1,20 +1,21 @@
 @import '../../styles/setup.scss';
 
 .header {
-    display: flex;
+  display: flex;
 
-    position: absolute;
-    top: 20px;
-    right: 20px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 
-    a {
-        margin-left: 20px;
-        font-size: 15px;
-        font-weight: bold;
-    }
+  a {
+    margin-left: 20px;
+    font-size: 15px;
+    font-weight: bold;
 
-    .selected {
-        color: $base-color;
-    }
+    overflow-y: hidden;
+  }
+
+  .selected {
+    color: $base-color;
+  }
 }
-

@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 
 import client from '@graphql'
 
-import { CharacterInfoContainer, CharPageImage } from '@components'
+import { CharPageImage, DetailInfoContainer, TableContainer } from '@components'
 
 import styles from './style.module.scss'
 
@@ -77,13 +77,24 @@ const CharacterPage = ({ character }: CharacterPageProps): JSX.Element => {
           image={character?.image}
           lazyLoad={isFallback}
         />
-        <CharacterInfoContainer
+        <DetailInfoContainer
           name={character?.name}
-          origin={character?.origin.name}
-          location={character?.location.name}
+          text1={character?.origin.name}
+          text2={character?.location.name}
+          image1='/origin.svg'
+          image2='/lastLocation.svg'
           lazyLoad={isFallback}
         />
       </div>
+      <TableContainer
+        columns={[
+          { header: 'Name', accessor: 'name' },
+          { header: 'Air Date', accessor: 'air_date' },
+          { header: 'Episode', accessor: 'episode' }
+        ]}
+        data={character?.episode}
+        type='episode'
+      />
     </div>
   )
 }

@@ -1,4 +1,4 @@
 export * from './CharPageImage'
-export * from './CharPageLastLocation'
-export * from './CharPageOrigin'
-export * from './CharPageTitle'
+export * from './DetailPageText2'
+export * from './DetailPageText1'
+export * from './DetailPageTitle'

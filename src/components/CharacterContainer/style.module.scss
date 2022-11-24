@@ -7,146 +7,146 @@ $unknown-color: #ffe6067a;
 $widthOriginEpisode: 160px;
 
 .container {
-    position: relative;
-    display: flex;
-    height: max-content;
-    min-height: 185px;
-    width: 350px;
+  position: relative;
+  display: flex;
+  height: 100%;
+  min-height: 185px;
+  width: 350px;
 
-    background-color: $container-color;
+  background-color: $container-color;
+
+  border-radius: 10px;
+
+  margin-bottom: 50px;
+
+  .image {
+    position: absolute;
+    height: 100%;
+    width: 135px;
+
+    img {
+      border-radius: 15px 0 0 15px;
+    }
+  }
+
+  .noImage {
+    position: absolute;
+    height: 100%;
+    width: 135px;
+
+    border-radius: 15px 0 0 15px;
+    background-color: #474747;
+  }
+  .noTitle {
+    width: 180px;
+    height: 30px;
+    background-color: #474747;
 
     border-radius: 10px;
+  }
+  .noStatus {
+    width: 120px;
+    height: 20px;
+    margin: 14px 0;
+    background-color: #474747;
 
-    margin-bottom: 50px;
+    border-radius: 10px;
+  }
+  .noOrigin {
+    width: $widthOriginEpisode;
+    height: 20px;
+    background-color: #474747;
 
-    .image {
-        position: absolute;
-        height: 100%;
-        width: 135px;
-        
-        img {
-            border-radius: 15px 0 0 15px;
-        }
+    margin-bottom: 15px;
+
+    border-radius: 10px;
+  }
+  .noEpisode {
+    width: $widthOriginEpisode;
+    height: 20px;
+    background-color: #474747;
+
+    border-radius: 10px;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+    margin-left: calc(135px + 15px);
+  }
+
+  .name {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.7rem;
+  }
+
+  .aliveStatus {
+    display: flex;
+    align-items: center;
+
+    margin: 14px 0;
+    div {
+      width: 12px;
+      height: 12px;
+
+      margin-right: 7px;
+
+      border-radius: 100%;
     }
 
-    .noImage {
-        position: absolute;
-        height: 100%;
-        width: 135px;
-
-        border-radius: 15px 0 0 15px;
-        background-color: #474747;
-    }
-    .noTitle {
-        width: 180px;
-        height: 30px;
-        background-color: #474747;
-
-        border-radius: 10px;
-    }
-    .noStatus {
-        width: 120px;
-        height: 20px;
-        margin: 14px 0;
-        background-color: #474747;
-
-        border-radius: 10px;
-    }
-    .noOrigin {
-        width: $widthOriginEpisode;
-        height: 20px;
-        background-color: #474747;
-
-        margin-bottom: 15px;
-
-        border-radius: 10px;
-    }
-    .noEpisode {
-        width: $widthOriginEpisode;
-        height: 20px;
-        background-color: #474747;
-
-        border-radius: 10px;
+    .Alive {
+      background-color: $alive-color;
     }
 
-    .info {
-        display: flex;
-        flex-direction: column;
-        margin-top: 20px;
-
-        margin-left: calc(135px + 15px);
+    .Dead {
+      background-color: $dead-color;
     }
 
-    .name {
-        font-size: 20px;
-        font-weight: bold;
-        line-height: 1.7rem;
+    .Unknown {
+      background-color: $unknown-color;
     }
 
-    .aliveStatus {
-        display: flex;
-        align-items: center;
-
-        margin: 14px 0;
-        div {
-            width: 12px;
-            height: 12px;
-            
-            margin-right: 7px;
-
-            border-radius: 100%;
-        }
-
-        .Alive {
-            background-color: $alive-color;
-        }
-
-        .Dead {
-            background-color: $dead-color;
-        }
-
-        .Unknown {
-            background-color: $unknown-color;
-        }
-
-        .default {
-            background-color: rgb(126, 126, 126);
-        }
-
-        p {
-            font-size: 12px;
-            font-weight: semi-bold;
-            color: rgba(255, 255, 255, 0.5);
-        }
+    .default {
+      background-color: rgb(126, 126, 126);
     }
 
-    .origin {
-        display: flex;
-        align-items: center;
-
-        margin-left: -3px;
-        margin-bottom: 15px;
-
-        p {
-            font-size: 15px;
-            font-weight: bold;
-            margin-left: 5px;
-            line-height: 1.2rem;
-        }
+    p {
+      font-size: 12px;
+      font-weight: semi-bold;
+      color: rgba(255, 255, 255, 0.5);
     }
+  }
 
-    .episode {
-        display: flex;
-        align-items: center;
+  .origin {
+    display: flex;
+    align-items: center;
 
-        margin-left: -3px;
-        margin-bottom: 15px;
+    margin-left: -3px;
+    margin-bottom: 15px;
 
-        p {
-            font-size: 15px;
-            font-weight: bold;
-            margin-left: 5px;
-            line-height: 1.2rem;
-        }
+    p {
+      font-size: 15px;
+      font-weight: bold;
+      margin-left: 5px;
+      line-height: 1.2rem;
     }
+  }
+
+  .episode {
+    display: flex;
+    align-items: center;
+
+    margin-left: -3px;
+    margin-bottom: 15px;
+
+    p {
+      font-size: 15px;
+      font-weight: bold;
+      margin-left: 5px;
+      line-height: 1.2rem;
+    }
+  }
 }

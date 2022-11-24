@@ -5,6 +5,9 @@ import { gql } from '@apollo/client'
 import client from '@graphql'
 import { useRouter } from 'next/router'
 
+import styles from './styles.module.scss'
+import { DetailInfoContainer, TableContainer } from '@components'
+
 const GET_LOCATION = gql`
   query GET_LOCATION($id: ID!) {
     location(id: $id) {
@@ -12,18 +15,32 @@ const GET_LOCATION = gql`
       name
       type
       dimension
+      residents {
+        id
+        name
+        status
+        species
+        type
+        gender
+      }
     }
   }
 `
 
 type LocationInfos = {
   location: {
-    results: {
+    id: string
+    name: string
+    type: string
+    dimension: string
+    residents: {
       id: string
       name: string
+      status: string
+      species: string
       type: string
-      dimension: string
-    }
+      gender: string
+    }[]
   }
 }
 
@@ -32,8 +49,40 @@ const LocationPage = ({ location }: LocationPage): JSX.Element => {
   const { isFallback } = useRouter()
 
   return (
-    <div>
-      <h1>Location Page</h1>
+    <div className={styles.content}>
+      <div>
+        <DetailInfoContainer
+          name={location?.name}
+          text1={location?.type}
+          text2={location?.dimension}
+          image1='/origin.svg'
+          image2='/lastLocation.svg'
+          lazyLoad={isFallback}
+        />
+      </div>
+
+      <TableContainer
+        columns={[
+          {
+            header: 'Name',
+            accessor: 'name'
+          },
+          {
+            header: 'Status',
+            accessor: 'status'
+          },
+          {
+            header: 'Species',
+            accessor: 'species'
+          },
+          {
+            header: 'Type',
+            accessor: 'type'
+          }
+        ]}
+        data={location?.residents}
+        type='location'
+      />
     </div>
   )
 }

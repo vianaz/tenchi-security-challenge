@@ -120,7 +120,7 @@ const Characters = ({
   loading,
   getLastOfList
 }: CharactersProps): JSX.Element => (
-  <>
+  <div className='characters'>
     {dataCharacters.map(char => {
       return (
         <CharacterContainer
@@ -136,7 +136,7 @@ const Characters = ({
         />
       )
     })}
-  </>
+  </div>
 )
 
 export default Home

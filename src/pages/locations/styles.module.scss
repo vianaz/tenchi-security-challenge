@@ -2,8 +2,20 @@
   margin-top: 100px;
   display: grid;
 
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-row-gap: 20px;
 
+  @media (max-width: 756px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 556px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   justify-items: center;
+}
+
+.content {
+  margin: 100px 20px;
 }

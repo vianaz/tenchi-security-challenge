@@ -1,14 +1,14 @@
 import styles from './styles.module.scss'
 
-type CharPageTitleProps = {
+type DetailPageTitleProps = {
   title: string
   lazyLoad: boolean
 }
 
-export const CharPageTitle = ({
+export const DetailPageTitle = ({
   title,
   lazyLoad
-}: CharPageTitleProps): JSX.Element => {
+}: DetailPageTitleProps): JSX.Element => {
   return lazyLoad ? (
     <div className={`${styles.noTitle} lazy`}></div>
   ) : (

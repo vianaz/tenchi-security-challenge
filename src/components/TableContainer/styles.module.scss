@@ -1,0 +1,20 @@
+.tableContainer {
+  h2 {
+    font-weight: bold;
+    font-style: italic;
+    font-size: 2.5rem;
+
+    margin: 2.5rem 0;
+  }
+  .customTableDesign {
+    border: 1px solid #6d6d6dfa;
+
+    th {
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+    td {
+      border: 1px solid #6d6d6dfa;
+    }
+  }
+}

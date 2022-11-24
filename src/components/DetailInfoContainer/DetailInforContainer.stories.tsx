@@ -1,17 +1,19 @@
 import { Meta, StoryObj } from '@storybook/react'
 
-import { CharacterInfoContainer } from '.'
+import { DetailInfoContainer } from '.'
 
 export default {
-  title: 'Components/CharacterInfoContainer',
-  component: CharacterInfoContainer
+  title: 'Components/DetailInfoContainer',
+  component: DetailInfoContainer
 } as Meta
 
 export const Default: StoryObj = {
   args: {
     name: 'Rick Sanchez',
-    origin: 'Earth (C-137)',
-    location: 'Citadel of Ricks',
+    text1: 'Earth (C-137)',
+    image1: '/origin.svg',
+    text2: 'Citadel of Ricks',
+    iamge2: '/lastLocation.svg',
     lazyLoad: false
   }
 }

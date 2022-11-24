@@ -1,5 +1,6 @@
 export * from './Header'
 export * from './CharacterContainer'
 export * from './LazyComponents'
-export * from './CharacterInfoContainer'
+export * from './DetailInfoContainer'
 export * from './LocationContainer'
+export * from './TableContainer'
