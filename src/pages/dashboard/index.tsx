@@ -133,7 +133,8 @@ const Dashboard = (): JSX.Element => {
               <span>{label}</span>
             </div>
           )}
-          onChange={option => setLocationName(option?.value || '')}
+          // @ts-ignore
+          onChange={({ value }) => setLocationName(value || '')}
         />
       </div>
 
