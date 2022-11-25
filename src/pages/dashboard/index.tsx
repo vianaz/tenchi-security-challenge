@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useMemo, useState } from 'react'
 
 import { gql, useQuery } from '@apollo/client'
@@ -120,6 +121,7 @@ const Dashboard = (): JSX.Element => {
           components={{
             IndicatorSeparator: () => null
           }}
+          // @ts-ignore
           formatOptionLabel={({ label }) => (
             <div className={styles.option}>
               <Image
