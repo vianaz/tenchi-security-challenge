@@ -4,7 +4,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import { useCallback } from 'react'
 import { useMemo } from 'react'
 
-import { CharacterContainer } from '@components'
+import { CharacterContainer, LogoComponent } from '@components'
 import { capitalize } from '@libs'
 import Image from 'next/image'
 
@@ -86,6 +86,7 @@ const Home = (): JSX.Element => {
 
   return (
     <div id='home'>
+      <LogoComponent />
       <InfiniteScroll
         dataLength={dataCharacters.length}
         hasMore={true}

@@ -10,7 +10,8 @@ export default defineConfig({
       '@style': '/src/styles/global.scss',
       '@graphql': '/src/lib/client',
       '@components': '/src/components',
-      '@libs': '/src/lib'
+      '@libs': '/src/lib',
+      '@hooks': '/src/hooks'
     }
   },
 

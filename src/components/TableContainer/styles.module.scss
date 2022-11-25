@@ -1,4 +1,6 @@
 .tableContainer {
+  margin-bottom: 100px;
+
   h2 {
     font-weight: bold;
     font-style: italic;
@@ -15,6 +17,25 @@
     }
     td {
       border: 1px solid #6d6d6dfa;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    margin: 2rem 0;
+
+    span {
+      margin: 0 1rem;
+
+      font-weight: bold;
+      font-size: 18px;
     }
   }
 }

@@ -2,11 +2,8 @@ $base-color: #77ab41;
 $container-color: #303436;
 
 #home {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  padding-top: 100px;
+  width: min-content;
+  margin: 100px auto;
 
   .characters {
     display: grid;

@@ -1,0 +1,28 @@
+.logo {
+  align-self: flex-start;
+
+  margin-bottom: 50px;
+
+  span {
+    position: relative;
+
+    font-weight: bold;
+    font-size: 4rem;
+
+    &:before {
+      z-index: -1;
+      position: absolute;
+      display: block;
+      content: '';
+      width: 100%;
+      height: 40px;
+
+      bottom: 0;
+
+      background-color: #77ab41;
+    }
+  }
+  img {
+    transform: rotate(15deg);
+  }
+}
