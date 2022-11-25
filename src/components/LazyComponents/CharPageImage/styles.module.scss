@@ -1,15 +1,12 @@
 @use '/src/styles/setup.scss' as *;
 
 .noImage {
-  position: absolute;
-  height: 100%;
   width: 145px;
-
+  height: 240px;
   background-color: $container-color;
 }
 
 .image {
-  position: absolute;
-  height: 100%;
   width: 145px;
+  height: 240px;
 }

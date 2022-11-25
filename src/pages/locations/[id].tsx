@@ -1,12 +1,14 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
+import { useRouter } from 'next/router'
+import Image from 'next/image'
 
 import { gql } from '@apollo/client'
 
 import client from '@graphql'
-import { useRouter } from 'next/router'
+import { DetailInfoContainer, TableContainer } from '@components'
+import { getRandomPlanet } from '@libs'
 
 import styles from './styles.module.scss'
-import { DetailInfoContainer, TableContainer } from '@components'
 
 const GET_LOCATION = gql`
   query GET_LOCATION($id: ID!) {
@@ -50,7 +52,14 @@ const LocationPage = ({ location }: LocationPage): JSX.Element => {
 
   return (
     <div className={styles.content}>
-      <div>
+      <div className={styles.info}>
+        <Image
+          className={isFallback ? 'lazy' : ''}
+          src={`/${isFallback ? 'mask.svg' : getRandomPlanet()}`}
+          alt='planet'
+          width={145}
+          height={180}
+        />
         <DetailInfoContainer
           name={location?.name}
           text1={location?.type}

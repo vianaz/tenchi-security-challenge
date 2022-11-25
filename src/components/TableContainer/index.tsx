@@ -62,7 +62,15 @@ export const TableContainer = ({
         <thead>
           <tr>
             {columns?.map(({ header }, index) => (
-              <th key={index}>{header}</th>
+              <th
+                className={
+                  columns.length - 1 === index && columns.length > 3
+                    ? styles.lastColumn
+                    : ''
+                }
+                key={index}>
+                {header}
+              </th>
             ))}
           </tr>
         </thead>
@@ -72,6 +80,11 @@ export const TableContainer = ({
             <tr key={index}>
               {columns.map(({ accessor }, index) => (
                 <td
+                  className={
+                    columns.length - 1 === index && columns.length > 3
+                      ? styles.lastColumn
+                      : ''
+                  }
                   onClick={(): Promise<boolean> =>
                     router.push(`${typesHashTable[type]}/${row.id}`)
                   }

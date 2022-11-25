@@ -1,6 +1,12 @@
 .tableContainer {
   margin-bottom: 100px;
 
+  .lastColumn {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
   h2 {
     font-weight: bold;
     font-style: italic;

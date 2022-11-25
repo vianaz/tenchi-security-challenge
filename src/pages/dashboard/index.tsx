@@ -1,57 +1,52 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useMemo, useState } from 'react'
 
-import { gql, useQuery } from '@apollo/client'
+import Image from 'next/image'
+
+import ReactSelect, { StylesConfig } from 'react-select'
 import { Chart as ChartJS, registerables } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
 
+import { getRandomPlanet } from '@libs'
+
 import styles from './styles.module.scss'
-import Image from 'next/image'
-import ReactSelect, { StylesConfig } from 'react-select'
+import { useLocations, useSpecies } from '@hooks'
 
 ChartJS.register(...registerables)
 
-const GET_CHARACTERS_STATUS = gql`
-  query GetCharactersStatus($page: Int) {
-    locations(page: $page) {
-      results {
-        name
-        residents {
-          status
-        }
-      }
-    }
-  }
-`
-
-type LocationsData = {
-  locations: {
-    results: {
-      name: string
-      residents: {
-        status: string
-      }[]
-    }[]
-  }
-}
-
 const Dashboard = (): JSX.Element => {
-  const { data } = useQuery<LocationsData>(GET_CHARACTERS_STATUS, {
-    variables: {
-      page: 1
-    }
-  })
   const [locationName, setLocationName] = useState('')
+  const [speciesName, setSpeciesName] = useState('')
   const [filter, setFilter] = useState<string>('perLocation')
 
+  const locations = useLocations()
+  const { species, characters } = useSpecies()
+
   const calculateStatus = useMemo(() => {
-    if (data && filter === 'perLocation') {
-      const locations = data.locations.results
-      const location = locations.find(
+    if (locations && filter === 'perLocation') {
+      const filteredLocations = locations.find(
         location => location.name === locationName
       )
-      const characters = location?.residents
+
+      const characters = filteredLocations?.residents
       const status = characters?.map(character => character.status)
+
+      const alive = status?.filter(status => status === 'Alive').length
+      const dead = status?.filter(status => status === 'Dead').length
+      const unknown = status?.filter(status => status === 'unknown').length
+
+      return [alive, unknown, dead]
+    }
+
+    if (species && filter === 'perSpecies') {
+      const filteredCharactersPerSpecies = characters.filter(
+        character => character.species === speciesName
+      )
+
+      const status = filteredCharactersPerSpecies?.map(
+        character => character.status
+      )
+
       const alive = status?.filter(status => status === 'Alive').length
       const dead = status?.filter(status => status === 'Dead').length
       const unknown = status?.filter(status => status === 'unknown').length
@@ -60,7 +55,24 @@ const Dashboard = (): JSX.Element => {
     }
 
     return [0, 0, 0]
-  }, [data, locationName, filter])
+  }, [locations, filter, species, locationName, characters, speciesName])
+
+  const options = useMemo(() => {
+    if (filter === 'perLocation') {
+      return locations?.map(location => ({
+        value: location.name,
+        label: location.name
+      }))
+    }
+    if (filter === 'perSpecies') {
+      return species?.map(specie => ({
+        value: specie,
+        label: specie
+      }))
+    }
+
+    return []
+  }, [locations, filter, species])
 
   const Data = useMemo(
     () => (
@@ -69,7 +81,7 @@ const Dashboard = (): JSX.Element => {
           labels: ['Alive', 'Unknown', 'Dead'],
           datasets: [
             {
-              label: 'Characters',
+              label: 'Status',
               data: calculateStatus,
               backgroundColor: [
                 'rgba(6, 255, 31, 0.49)',
@@ -111,12 +123,7 @@ const Dashboard = (): JSX.Element => {
         </div>
 
         <ReactSelect
-          options={
-            data?.locations.results.map(location => ({
-              value: location.name,
-              label: location.name
-            })) || []
-          }
+          options={options}
           styles={stylesReactSelect}
           components={{
             IndicatorSeparator: () => null
@@ -125,7 +132,7 @@ const Dashboard = (): JSX.Element => {
           formatOptionLabel={({ label }) => (
             <div className={styles.option}>
               <Image
-                src='/planet_1.svg'
+                src={`/${getRandomPlanet()}`}
                 alt='location'
                 width={25}
                 height={25}
@@ -134,7 +141,14 @@ const Dashboard = (): JSX.Element => {
             </div>
           )}
           // @ts-ignore
-          onChange={({ value }) => setLocationName(value || '')}
+          onChange={({ value }) => {
+            if (filter === 'perLocation') {
+              setLocationName(value)
+            }
+            if (filter === 'perSpecies') {
+              setSpeciesName(value)
+            }
+          }}
         />
       </div>
 

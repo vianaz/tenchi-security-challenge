@@ -1,9 +1,11 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import useTranslation from 'next-translate/useTranslation'
+import Image from 'next/image'
+
+import { Dropdown } from 'react-bootstrap'
 
 import styles from './style.module.scss'
-import Image from 'next/image'
 
 export const Header = (): JSX.Element => {
   const router = useRouter()
@@ -46,14 +48,35 @@ export const Header = (): JSX.Element => {
           placeholder='Buscar'
         />
       </div>
-      {headerInfos.map(({ text, url }) => (
-        <Link
-          href={url}
-          key={text}
-          className={isSelect(url) ? styles.selected : ''}>
-          {text}
-        </Link>
-      ))}
+      <div className={styles.inline}>
+        {headerInfos.map(({ text, url }) => (
+          <Link
+            href={url}
+            key={text}
+            className={isSelect(url) ? styles.selected : ''}>
+            {text}
+          </Link>
+        ))}
+      </div>
+
+      <Dropdown className={styles.dropdown}>
+        <Dropdown.Toggle
+          variant='success'
+          id='dropdown-basic'>
+          Menu
+        </Dropdown.Toggle>
+
+        <Dropdown.Menu>
+          {headerInfos.map(({ text, url }) => (
+            <Dropdown.Item
+              key={text}
+              className={isSelect(url) ? styles.selected : ''}
+              onClick={() => router.push(url)}>
+              {text}
+            </Dropdown.Item>
+          ))}
+        </Dropdown.Menu>
+      </Dropdown>
     </header>
   )
 }

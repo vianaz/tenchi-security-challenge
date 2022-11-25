@@ -4,9 +4,10 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import { useCallback } from 'react'
 import { useMemo } from 'react'
 
-import { CharacterContainer, LogoComponent } from '@components'
-import { capitalize } from '@libs'
 import Image from 'next/image'
+
+import { CharacterContainer, LogoComponent } from '@components'
+import { capitalize, getAllSpecies } from '@libs'
 
 const GET_CHARACTERS = gql`
   query GetCharacters($page: Int!) {

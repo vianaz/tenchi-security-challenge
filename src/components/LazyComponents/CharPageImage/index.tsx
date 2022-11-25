@@ -16,8 +16,10 @@ export const CharPageImage = ({
   ) : (
     <div className={styles.image}>
       <Image
-        fill
+        width={145}
+        height={240}
         src={image}
+        quality={100}
         alt='Character Image'
       />
     </div>

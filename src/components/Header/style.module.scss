@@ -5,8 +5,12 @@
   align-items: center;
 
   position: absolute;
-  top: 20px;
+  top: 30px;
   right: 20px;
+
+  @media (max-width: $breakpoint-mobile) {
+    right: 10px;
+  }
 
   .search {
     display: flex;
@@ -32,6 +36,20 @@
       &:focus {
         outline: none;
       }
+    }
+  }
+
+  .inline {
+    @media (max-width: 748px) {
+      display: none;
+    }
+  }
+  .dropdown {
+    display: none;
+
+    margin-left: 10px;
+    @media (max-width: 748px) {
+      display: block;
     }
   }
 
