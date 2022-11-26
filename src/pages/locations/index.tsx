@@ -1,10 +1,11 @@
+import { useCallback, useMemo } from 'react'
+
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { gql, useQuery } from '@apollo/client'
-import { useCallback, useMemo } from 'react'
 
 import Image from 'next/image'
 
-import { LocationContainer } from '@components'
+import { LocationContainer, LogoComponent } from '@components'
 
 import styles from './styles.module.scss'
 
@@ -65,7 +66,8 @@ const LocationsPage = (): JSX.Element => {
   }, [dataLocations, fetchMore])
 
   return (
-    <div>
+    <div className={styles.locations}>
+      <LogoComponent />
       <InfiniteScroll
         dataLength={dataLocations.length}
         hasMore={true}

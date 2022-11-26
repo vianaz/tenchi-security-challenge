@@ -25,7 +25,7 @@ export const Header = (): JSX.Element => {
       url: '/locations'
     },
     {
-      text: t('header.episodies'),
+      text: t('header.episodes'),
       url: '/episodes'
     }
   ]
@@ -45,7 +45,7 @@ export const Header = (): JSX.Element => {
         />
         <input
           type='text'
-          placeholder='Buscar'
+          placeholder={t('header.search')}
         />
       </div>
       <div className={styles.inline}>

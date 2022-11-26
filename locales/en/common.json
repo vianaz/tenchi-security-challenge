@@ -2,6 +2,29 @@
   "header": {
     "characters": "Characters",
     "locations": "Locations",
-    "episodies": "Episodies"
+    "episodes": "Episodes",
+    "search": "Search"
+  },
+  "dashboard": {
+    "alive": "Alive",
+    "dead": "Dead",
+    "unknown": "Unknown",
+    "species": "Species",
+    "location": "Location"
+  },
+  "table": {
+    "episodes": "Episodes",
+    "location": "Residents"
+  },
+  "locationPage": {
+    "name": "Name",
+    "status": "Status",
+    "species": "Species",
+    "type": "Type"
+  },
+  "characterPage": {
+    "name": "Name",
+    "airDate": "Air Date",
+    "episode": "Episode"
   }
 }

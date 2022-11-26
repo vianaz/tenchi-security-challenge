@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import Image from 'next/image'
 import { useRouter } from 'next/router'
+import useTranslation from 'next-translate/useTranslation'
 
 import { usePagination } from '@hooks'
 
@@ -16,29 +17,12 @@ type TableContainerProps = {
   type: 'episode' | 'location'
 }
 
-const typesHashTable = {
-  episode: {
-    header: 'Episodes',
-
-    [Symbol.toPrimitive](): string {
-      return '/episodes'
-    }
-  },
-
-  location: {
-    header: 'Residents',
-
-    [Symbol.toPrimitive](): string {
-      return '/character'
-    }
-  }
-}
-
 export const TableContainer = ({
   data,
   columns,
   type
 }: TableContainerProps): JSX.Element => {
+  const { t } = useTranslation('common')
   const [page, setPage] = useState(1)
   const dataPerPage = 10
 
@@ -52,6 +36,24 @@ export const TableContainer = ({
     setDataPaginated(pageNumber)
   }
   const isLastPage = Math.floor(data?.length / dataPerPage + 1) === page
+
+  const typesHashTable = {
+    episode: {
+      header: t('table.episodes'),
+
+      [Symbol.toPrimitive](): string {
+        return '/episodes'
+      }
+    },
+
+    location: {
+      header: t('table.location'),
+
+      [Symbol.toPrimitive](): string {
+        return '/character'
+      }
+    }
+  }
 
   const router = useRouter()
   return (

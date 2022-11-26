@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useMemo, useState } from 'react'
 
+import useTranslation from 'next-translate/useTranslation'
 import Image from 'next/image'
 
 import ReactSelect, { StylesConfig } from 'react-select'
@@ -15,6 +16,7 @@ import { useLocations, useSpecies } from '@hooks'
 ChartJS.register(...registerables)
 
 const Dashboard = (): JSX.Element => {
+  const { t } = useTranslation('common')
   const [locationName, setLocationName] = useState('')
   const [speciesName, setSpeciesName] = useState('')
   const [filter, setFilter] = useState<string>('perLocation')
@@ -78,7 +80,11 @@ const Dashboard = (): JSX.Element => {
     () => (
       <Bar
         data={{
-          labels: ['Alive', 'Unknown', 'Dead'],
+          labels: [
+            t('dashboard.alive'),
+            t('dashboard.unknown'),
+            t('dashboard.dead')
+          ],
           datasets: [
             {
               label: 'Status',
@@ -96,7 +102,7 @@ const Dashboard = (): JSX.Element => {
         }}
       />
     ),
-    [calculateStatus]
+    [calculateStatus, t]
   )
 
   return (
@@ -111,7 +117,7 @@ const Dashboard = (): JSX.Element => {
             onChange={() => setFilter('perLocation')}
             checked={filter === 'perLocation'}
           />
-          <label htmlFor='option1'>Location</label>
+          <label htmlFor='option1'>{t('dashboard.location')}</label>
           <input
             type='radio'
             name='options'
@@ -119,7 +125,7 @@ const Dashboard = (): JSX.Element => {
             autoComplete='off'
             onChange={() => setFilter('perSpecies')}
           />
-          <label htmlFor='option2'>Species</label>
+          <label htmlFor='option2'>{t('dashboard.species')}</label>
         </div>
 
         <ReactSelect

@@ -1,6 +1,8 @@
-import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
+
+import { GetStaticPaths, GetStaticProps } from 'next'
 import Image from 'next/image'
+import useTranslation from 'next-translate/useTranslation'
 
 import { gql } from '@apollo/client'
 
@@ -48,6 +50,7 @@ type LocationInfos = {
 
 type LocationPage = LocationInfos
 const LocationPage = ({ location }: LocationPage): JSX.Element => {
+  const { t } = useTranslation('common')
   const { isFallback } = useRouter()
 
   return (
@@ -64,8 +67,8 @@ const LocationPage = ({ location }: LocationPage): JSX.Element => {
           name={location?.name}
           text1={location?.type}
           text2={location?.dimension}
-          image1='/origin.svg'
-          image2='/lastLocation.svg'
+          image1='/dimensionType.svg'
+          image2='/dimension.svg'
           lazyLoad={isFallback}
         />
       </div>
@@ -73,19 +76,19 @@ const LocationPage = ({ location }: LocationPage): JSX.Element => {
       <TableContainer
         columns={[
           {
-            header: 'Name',
+            header: t('locationPage.name'),
             accessor: 'name'
           },
           {
-            header: 'Status',
+            header: t('locationPage.status'),
             accessor: 'status'
           },
           {
-            header: 'Species',
+            header: t('locationPage.species'),
             accessor: 'species'
           },
           {
-            header: 'Type',
+            header: t('locationPage.type'),
             accessor: 'type'
           }
         ]}

@@ -2,6 +2,29 @@
   "header": {
     "characters": "Personagens",
     "locations": "Locais",
-    "episodies": "Episódios"
+    "episodes": "Episódios",
+    "search": "Buscar"
+  },
+  "dashboard": {
+    "alive": "Vivo",
+    "dead": "Morto",
+    "unknown": "Desconhecido",
+    "species": "Especies",
+    "location": "Locais"
+  },
+  "table": {
+    "episodes": "Episódios",
+    "location": "Moradores"
+  },
+  "locationPage": {
+    "name": "Nome",
+    "status": "Status",
+    "species": "Espécie",
+    "type": "Tipo"
+  },
+  "characterPage": {
+    "name": "Nome",
+    "airDate": "Data de lançamento",
+    "episode": "Episódio"
   }
 }

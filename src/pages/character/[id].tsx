@@ -2,6 +2,7 @@ import { gql } from '@apollo/client'
 
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
+import useTranslation from 'next-translate/useTranslation'
 
 import client from '@graphql'
 
@@ -68,6 +69,7 @@ const GET_CHARACTER = gql`
 `
 
 const CharacterPage = ({ character }: CharacterPageProps): JSX.Element => {
+  const { t } = useTranslation('common')
   const { isFallback } = useRouter()
 
   return (
@@ -88,9 +90,9 @@ const CharacterPage = ({ character }: CharacterPageProps): JSX.Element => {
       </div>
       <TableContainer
         columns={[
-          { header: 'Name', accessor: 'name' },
-          { header: 'Air Date', accessor: 'air_date' },
-          { header: 'Episode', accessor: 'episode' }
+          { header: t('characterPage.name'), accessor: 'name' },
+          { header: t('characterPage.airDate'), accessor: 'air_date' },
+          { header: t('characterPage.episode'), accessor: 'episode' }
         ]}
         data={character?.episode}
         type='episode'
