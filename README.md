@@ -1,7 +1,7 @@
 <br />
 <br />
 <div align="center">
-    <img src="https://www.tenchisecurity.com.br/wp-content/uploads/2021/11/logotipo.svg" width="350px"/>
+    <img src="./logotipo.svg" width="350px"/>
     <h3>TENCHI CHALLENGE</h3>
     <br />
     <div align="center">
@@ -31,11 +31,11 @@
 First you need **clone this repository** with:
 
 ```console
-git clone git@github.com:vianaz/certi-challenge.git
+git clone git@github.com:vianaz/tenchi-security-challenge.git
 
 ou
 
-git clone https://github.com/vianaz/certi-challenge.git
+git clone https://github.com/vianaz/tenchi-security-challenge.git
 ```
 
 <br />
