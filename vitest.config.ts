@@ -5,6 +5,8 @@ import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
+  root: __dirname,
+  publicDir: 'public',
   resolve: {
     alias: {
       '@style': '/src/styles/global.scss',

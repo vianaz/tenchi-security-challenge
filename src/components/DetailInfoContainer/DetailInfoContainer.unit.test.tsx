@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { cleanup, render, RenderResult } from '@testing-library/react'
 import { DetailInfoContainer, DetailInfoContainerProps } from '.'
@@ -10,6 +10,13 @@ const makeSut = (props: DetailInfoContainerProps): RenderResult => {
 describe('CharacterInfoContainer', () => {
   beforeEach(() => {
     cleanup()
+  })
+
+  vi.mock('next/image', () => {
+    return {
+      __esModule: true,
+      default: () => <div>Mocked Image</div>
+    }
   })
 
   it('should render the component', () => {

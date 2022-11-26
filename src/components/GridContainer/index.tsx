@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 import styles from './styles.module.scss'
 
-type GridContainerProps = {
+export type GridContainerProps = {
   id: string
   name: string
   lazyLoad: boolean

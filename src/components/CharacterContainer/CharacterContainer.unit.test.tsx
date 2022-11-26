@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from 'vitest'
+import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { cleanup, render, RenderResult } from '@testing-library/react'
 
 import { CharacterContainer } from '.'
@@ -21,6 +21,13 @@ const makeSut = (lazyLoad: boolean): RenderResult => {
 describe('CharacterContainer', () => {
   beforeEach(() => {
     cleanup()
+  })
+
+  vi.mock('next/image', () => {
+    return {
+      __esModule: true,
+      default: () => <div>Mocked Image</div>
+    }
   })
 
   it('should render the component', () => {
