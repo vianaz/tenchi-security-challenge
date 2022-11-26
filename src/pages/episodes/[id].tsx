@@ -12,14 +12,14 @@ import { getRandomPlanet } from '@libs'
 
 import styles from './styles.module.scss'
 
-const GET_LOCATION = gql`
-  query GET_LOCATION($id: ID!) {
-    location(id: $id) {
+const GET_EPISODE = gql`
+  query GET_EPISODE($id: ID!) {
+    episode(id: $id) {
       id
       name
-      type
-      dimension
-      residents {
+      air_date
+      episode
+      characters {
         id
         name
         status
@@ -31,13 +31,13 @@ const GET_LOCATION = gql`
   }
 `
 
-type LocationInfos = {
-  location: {
+type EpisodeInfo = {
+  episode: {
     id: string
     name: string
-    type: string
-    dimension: string
-    residents: {
+    air_date: string
+    episode: string
+    characters: {
       id: string
       name: string
       status: string
@@ -48,8 +48,8 @@ type LocationInfos = {
   }
 }
 
-type LocationPage = LocationInfos
-const LocationPage = ({ location }: LocationPage): JSX.Element => {
+type EpisodePage = EpisodeInfo
+const EpisodePage = ({ episode }: EpisodePage): JSX.Element => {
   const { t } = useTranslation('common')
   const { isFallback } = useRouter()
 
@@ -64,9 +64,9 @@ const LocationPage = ({ location }: LocationPage): JSX.Element => {
           height={180}
         />
         <DetailInfoContainer
-          name={location?.name}
-          text1={location?.type}
-          text2={location?.dimension}
+          name={episode?.name}
+          text1={episode?.air_date}
+          text2={episode?.episode}
           image1='/dimensionType.svg'
           image2='/dimension.svg'
           lazyLoad={isFallback}
@@ -92,7 +92,7 @@ const LocationPage = ({ location }: LocationPage): JSX.Element => {
             accessor: 'type'
           }
         ]}
-        data={location?.residents}
+        data={episode?.characters}
         type='character'
       />
     </div>
@@ -109,8 +109,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ctx => {
   const { id } = ctx.params as { id: string }
 
-  const { data } = await client.query<LocationInfos>({
-    query: GET_LOCATION,
+  const { data } = await client.query<EpisodeInfo>({
+    query: GET_EPISODE,
     variables: {
       id
     }
@@ -118,10 +118,10 @@ export const getStaticProps: GetStaticProps = async ctx => {
 
   return {
     props: {
-      location: data.location
+      episode: data.episode
     },
     revalidate: 60 * 60 * 24 // 24 hours
   }
 }
 
-export default LocationPage
+export default EpisodePage

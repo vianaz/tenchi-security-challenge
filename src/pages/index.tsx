@@ -7,7 +7,7 @@ import { useMemo } from 'react'
 import Image from 'next/image'
 
 import { CharacterContainer, LogoComponent } from '@components'
-import { capitalize, getAllSpecies } from '@libs'
+import { capitalize } from '@libs'
 
 const GET_CHARACTERS = gql`
   query GetCharacters($page: Int!) {

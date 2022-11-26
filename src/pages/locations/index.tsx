@@ -5,7 +5,7 @@ import { gql, useQuery } from '@apollo/client'
 
 import Image from 'next/image'
 
-import { LocationContainer, LogoComponent } from '@components'
+import { GridContainer, LogoComponent } from '@components'
 
 import styles from './styles.module.scss'
 
@@ -100,11 +100,12 @@ const Locations = ({ dataLocations, loading }: LocationsProps): JSX.Element => {
   return (
     <div className={styles.grid}>
       {dataLocations.map(location => (
-        <LocationContainer
+        <GridContainer
           key={location?.name}
           id={location?.id}
           name={location?.name}
           lazyLoad={loading}
+          type='locations'
         />
       ))}
     </div>

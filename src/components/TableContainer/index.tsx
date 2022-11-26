@@ -9,12 +9,13 @@ import { usePagination } from '@hooks'
 import styles from './styles.module.scss'
 
 type TableContainerProps = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any[]
   columns: {
     header: string
     accessor: string
   }[]
-  type: 'episode' | 'location'
+  type: 'episode' | 'character'
 }
 
 export const TableContainer = ({
@@ -46,7 +47,7 @@ export const TableContainer = ({
       }
     },
 
-    location: {
+    character: {
       header: t('table.location'),
 
       [Symbol.toPrimitive](): string {

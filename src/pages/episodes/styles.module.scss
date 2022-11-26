@@ -1,0 +1,29 @@
+.episodes {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-left: 10%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-row-gap: 20px;
+
+  @media (max-width: 756px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 556px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.content {
+  margin: 150px 10px;
+  .info {
+    display: flex;
+  }
+}
